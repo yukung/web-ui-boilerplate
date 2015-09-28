@@ -16,6 +16,9 @@ dependencies {
 }
 
 assets {
+    minifyJs = false
+    minifyCss = false
+    enableSourceMaps = false
     /*
      * ratpack-gradle が v1.0.0 に伴い gradle の continuous build に対応したことにより、
      * ratpack.file.internal.DefaultFileSystemBinding.binding が返してくるパスが

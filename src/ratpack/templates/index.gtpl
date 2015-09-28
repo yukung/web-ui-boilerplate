@@ -2,7 +2,7 @@ yieldUnescaped '<!DOCTYPE html>'
 html {
   head {
     title "Site boilerplate $title"
-    link href: '/application.css', rel: 'stylesheet'
+    link href: '/assets/application.css', rel: 'stylesheet'
   }
   body {
     h1 'Boilerplate'
@@ -12,5 +12,6 @@ html {
         li "hoge$i"
       }
     }
+    yieldUnescaped "<script src='/assets/application.js' type='text/javascript'></script>"
   }
 }
