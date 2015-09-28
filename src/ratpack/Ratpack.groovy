@@ -1,10 +1,10 @@
-import ratpack.groovy.template.MarkupTemplateModule
+import asset.pipeline.ratpack.AssetPipelineModule
 
-import static ratpack.groovy.Groovy.groovyMarkupTemplate
 import static ratpack.groovy.Groovy.ratpack
 
 ratpack {
     bindings {
+        module AssetPipelineModule
     }
 
     handlers {

@@ -1,6 +1,7 @@
 plugins {
     id "io.ratpack.ratpack-groovy" version "1.0.0"
     id "com.github.johnrengelman.shadow" version "1.2.2"
+    id "com.bertramlabs.asset-pipeline" version "2.5.0"
     id "idea"
     id "eclipse"
 }
@@ -10,5 +11,20 @@ repositories {
 }
 
 dependencies {
+    compile "com.bertramlabs.plugins:ratpack-asset-pipeline:2.5.1"
     runtime 'org.slf4j:slf4j-simple:1.7.12'
+}
+
+assets {
+    /*
+     * ratpack-gradle が v1.0.0 に伴い gradle の continuous build に対応したことにより、
+     * ratpack.file.internal.DefaultFileSystemBinding.binding が返してくるパスが
+     * src/ratpack ではなく build/resources/main で返ってきてしまうため、
+     * asset.pipeline.ratpack.AssetPipelineModule.Config.sourcePath が指している位置がずれてしまい、
+     * Asset Compile が効かない。
+     *
+     * workaround として、asset.pipeline.ratpack.AssetPipelineModule.Config.sourcePath を
+     * ビルド後の build/resources/main/Ratpack.groovy から参照できるようにファイルパスを調整している。
+     */
+    compileDir = 'build/resources/main/assets'
 }
