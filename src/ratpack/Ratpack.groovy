@@ -5,14 +5,8 @@ import static ratpack.groovy.Groovy.ratpack
 
 ratpack {
     bindings {
-        module MarkupTemplateModule
     }
 
     handlers {
-        get {
-            render groovyMarkupTemplate("index.gtpl", title: "My Boilerplate")
-        }
-
-        files { dir "public" }
     }
 }
