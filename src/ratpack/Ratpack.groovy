@@ -14,7 +14,5 @@ ratpack {
         get {
             render groovyMarkupTemplate("index.gtpl", title: "My Boilerplate")
         }
-
-        files { dir "public" }
     }
 }
