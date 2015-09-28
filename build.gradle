@@ -1,3 +1,14 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath "com.bertramlabs.plugins:sass-asset-pipeline:2.3.0"
+        classpath "com.bertramlabs.plugins:coffee-asset-pipeline:2.0.7"
+    }
+}
+
 plugins {
     id "io.ratpack.ratpack-groovy" version "1.0.0"
     id "com.github.johnrengelman.shadow" version "1.2.2"
@@ -19,12 +30,15 @@ assets {
     minifyJs = false
     minifyCss = false
     enableSourceMaps = false
+    skipNonDigests = true
+    enableDigests = true
+    enableGzip = false
     /*
      * ratpack-gradle が v1.0.0 に伴い gradle の continuous build に対応したことにより、
      * ratpack.file.internal.DefaultFileSystemBinding.binding が返してくるパスが
      * src/ratpack ではなく build/resources/main で返ってきてしまうため、
-     * asset.pipeline.ratpack.AssetPipelineModule.Config.sourcePath が指している位置がずれてしまい、
-     * Asset Compile が効かない。
+     * asset.pipeline.ratpack.AssetPipelineModule.Config.sourcePath が指している位置が
+     * ずれてしまい、 Asset Compile が効かない。
      *
      * workaround として、asset.pipeline.ratpack.AssetPipelineModule.Config.sourcePath を
      * ビルド後の build/resources/main/Ratpack.groovy から参照できるようにファイルパスを調整している。
