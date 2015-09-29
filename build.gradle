@@ -13,6 +13,7 @@ plugins {
     id "io.ratpack.ratpack-groovy" version "1.0.0"
     id "com.github.johnrengelman.shadow" version "1.2.2"
     id "com.bertramlabs.asset-pipeline" version "2.5.0"
+    id "org.kordamp.gradle.livereload" version "0.2.1"
     id "idea"
     id "eclipse"
 }
@@ -47,3 +48,7 @@ assets {
 }
 
 run.dependsOn assetCompile
+
+liveReload {
+    docRoot = 'build/resources/main'
+}
