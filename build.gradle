@@ -24,6 +24,9 @@ repositories {
 
 dependencies {
     compile "com.bertramlabs.plugins:ratpack-asset-pipeline:2.5.1"
+    compile 'org.webjars:jquery:2.1.4'
+    compile 'org.webjars:lodash:3.10.1'
+    compile 'org.webjars:bootstrap-sass:3.3.1-1'
     runtime 'org.slf4j:slf4j-simple:1.7.12'
 }
 
@@ -31,7 +34,7 @@ assets {
     minifyJs = false
     minifyCss = false
     enableSourceMaps = false
-    skipNonDigests = true
+    skipNonDigests = false
     enableDigests = true
     enableGzip = false
     /*
@@ -45,6 +48,12 @@ assets {
      * ビルド後の build/resources/main/Ratpack.groovy から参照できるようにファイルパスを調整している。
      */
     compileDir = 'build/resources/main/assets'
+
+    excludes = ['**/*.scss', '**/*.js', '**/*.map']
+    includes = ['application.sass', '**/bootstrap.js', '**/jquery.js', '**/lodash.js']
+    configurations.compile.files({ dep -> dep.group == 'org.webjars' }).each { file ->
+        from file.path
+    }
 }
 
 run.dependsOn assetCompile
