@@ -1,4 +1,4 @@
-web-ui-boilerplate
-==================
+mockup-boilerplate-jvm
+======================
 
-This template is my application's boilerplate for web UI.
+This is the template which create a mock of the Web application for the JVM language.
