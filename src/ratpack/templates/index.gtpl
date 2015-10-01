@@ -1,10 +1,6 @@
-yieldUnescaped '<!DOCTYPE html>'
-html {
-  head {
-    title "Site boilerplate $title"
-    link href: '/assets/application.css', rel: 'stylesheet'
-  }
-  body {
+layout 'layout.gtpl',
+  title: "$title",
+  bodyContents: contents {
     h1 'Boilerplate'
     p "This is a ${$a(href: 'https://www.google.co.jp/', 'Google')}."
     ul {
@@ -12,6 +8,4 @@ html {
         li "hoge$i"
       }
     }
-    yieldUnescaped "<script src='/assets/application.js' type='text/javascript'></script>"
   }
-}
