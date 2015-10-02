@@ -74,6 +74,8 @@ Combine the file using the `@import` notation in the case of Sass.
 @import "webjars/bootstrap-sass/3.3.1/stylesheets/bootstrap"
 ```
 
+#### assets/stylesheets/application.css
+
 In the case of naked CSS, it is as a normal asset pipeline may be describing the directive in the comments.
 
 ```css
