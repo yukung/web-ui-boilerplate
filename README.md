@@ -1,7 +1,7 @@
 mockup-boilerplate-jvm
 ======================
 
-This is the template which create a mock of the Web application for the JVM language. RubyGems and bundler, npm and Grunt/gulp, bower, etc... is not required.
+This is the template which create a mock of the Web application for the JVM language tool chain. RubyGems and bundler, npm and Grunt/gulp, bower, etc... is not required.
 
 It's using the technology stack below.
 
