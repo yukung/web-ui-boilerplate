@@ -61,3 +61,7 @@ run.dependsOn assetCompile
 liveReload {
     docRoot = 'build/resources/main'
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.8'
+}
